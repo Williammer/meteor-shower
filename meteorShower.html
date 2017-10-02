@@ -20,7 +20,7 @@
     background: #000;
   }
 
-  .wrap {
+  .container {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -39,8 +39,11 @@
 </head>
 
 <body>
-  <div class="wrap">
+  <div class="container">
     <canvas id="meteorSky" width="2000" height="1400"></canvas>
+    <audio src="./media/a-song-for-love.mp3" autoplay loop>
+      Your browser does not support the <code>audio</code> element.
+    </audio>
   </div>
   <script src="dist/meteorShower.js"></script>
 </body>
