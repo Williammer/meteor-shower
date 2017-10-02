@@ -13,7 +13,7 @@ class Crood {
 }
 
 class Meteor {
-  constructor(init = new Crood(), final = new Crood(), size = 3, speed = 200, onDistory = null) {
+  constructor(init = new Crood(), final = new Crood(), size = 3, speed = 200, onDestroy = null) {
     this.init = init; // 初始位置
     this.final = final; // 最终位置
     this.size = size; // 大小
@@ -25,7 +25,7 @@ class Meteor {
     this.pass = 0; // 已过去的时间
     this.prev = this.init.copy(); // 上一帧位置
     this.now = this.init.copy(); // 当前位置
-    this.onDistory = onDistory;
+    this.onDestroy = onDestroy;
   }
   draw(ctx, delta) {
     this.pass += delta;
@@ -49,11 +49,11 @@ class Meteor {
 
     this.prev.setCrood(this.now.x, this.now.y);
     if (this.pass === this.dur) {
-      this.distory();
+      this.destroy();
     }
   }
-  distory() {
-    this.onDistory && this.onDistory();
+  destroy() {
+    this.onDestroy && this.onDestroy();
   }
 }
 
@@ -108,7 +108,7 @@ class MeteorShower {
 
     const _tick = () => {
       if (this.stop && this.stars.length === 0) {
-        cancelAnimationFrame(this.T);
+        window.cancelAnimationFrame(this.T);
         this.playing = false;
         return;
       }
@@ -117,15 +117,15 @@ class MeteorShower {
       delta = delta > 500 ? 30 : (delta < 16 ? 16 : delta);
       last = now;
 
-      this.T = requestAnimationFrame(_tick);
+      this.T = window.requestAnimationFrame(_tick);
 
-      ctx.save();
+      this.ctx.save();
 
-      ctx.fillStyle = 'rgba(0,0,0,0.9)';
-      ctx.globalCompositeOperation = 'destination-in';
+      this.ctx.fillStyle = 'rgba(0,0,0,0.9)';
+      this.ctx.globalCompositeOperation = 'destination-in';
 
-      ctx.fillRect(0, 0, cvs.width, cvs.height);
-      ctx.restore();
+      this.ctx.fillRect(0, 0, this.cvs.width, this.cvs.height);
+      this.ctx.restore();
       this.update(delta);
     };
     _tick();
@@ -141,11 +141,10 @@ class MeteorShower {
   }
 }
 
-const cvs = document.querySelector('canvas');
-const ctx = cvs.getContext('2d');
+const canvas = document.querySelector('canvas');
+const ctx2d = canvas.getContext('2d');
 
-const meteorShower = new MeteorShower(cvs, ctx, {
+new MeteorShower(canvas, ctx2d, {
   starCount: 1,
-});
-
-meteorShower.start();
+})
+  .start();
