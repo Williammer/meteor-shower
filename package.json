@@ -1,0 +1,39 @@
+{
+  "name": "all-for-yunzi",
+  "version": "0.0.1",
+  "description": "All my love for YunZi",
+  "main": "index.html",
+  "scripts": {
+    "build": "babel src -d dist -s",
+    "build:watch": "babel src -w -d dist -s",
+    "start": "open meteorShower.html",
+    "lint": "eslint --fix src/meteorShower.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Williammer/all-for-yunzi.git"
+  },
+  "keywords": [
+    "canvas",
+    "love"
+  ],
+  "author": "Williammer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Williammer/all-for-yunzi/issues"
+  },
+  "homepage": "https://github.com/Williammer/all-for-yunzi#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.0",
+    "eslint": "^4.8.0",
+    "eslint-config-airbnb-base": "^12.0.1",
+    "eslint-plugin-import": "^2.7.0"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  }
+}
