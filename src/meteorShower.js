@@ -74,6 +74,7 @@ class MeteorShower {
 
     this.meteorCount = config.meteorCount;
     this.maxPathHeight = config.maxPathHeight;
+    this.minPathLength = config.minPathLength;
     this.maxPathLength = config.maxPathLength;
     this.maxSize = config.maxSize;
     this.minSpeed = config.minSpeed;
@@ -82,11 +83,11 @@ class MeteorShower {
 
   createMeteor() {
     const angle = rand(Math.PI);
-    const pathLength = rand(this.maxPathLength);
-    const init = new Coordinate(rand(this.cvs.width), rand(this.maxPathHeight));
-    const final = new Coordinate(init.x + pathLength * Math.cos(angle), init.y + pathLength * Math.sin(angle));
     const size = rand(this.maxSize);
     const speed = Math.max(rand(this.maxSpeed), this.minSpeed);
+    const pathLength = Math.max(rand(this.maxPathLength), this.minPathLength);
+    const init = new Coordinate(rand(this.cvs.width), rand(this.maxPathHeight));
+    const final = new Coordinate(init.x + pathLength * Math.cos(angle), init.y + pathLength * Math.sin(angle));
 
     return new Meteor(
       init, final, size, speed,
@@ -95,7 +96,7 @@ class MeteorShower {
   }
 
   removeMeteor(meteor) {
-    this.meteors = this.meteors.filter(s => s !== meteor); // no way its deep equal
+    this.meteors = this.meteors.filter(s => s !== meteor); // TO Fix: no way its deep equal
   }
 
   update(delta) {
@@ -151,11 +152,12 @@ const canvas = document.querySelector('canvas');
 const ctx2d = canvas.getContext('2d');
 
 new MeteorShower(canvas, ctx2d, {
-  meteorCount: 1,
-  maxPathHeight: 500,
-  maxPathLength: 600,
-  maxSize: 3,
-  minSpeed: 500,
-  maxSpeed: 1000,
-})
+    meteorCount: 1,
+    maxPathHeight: 600,
+    minPathLength: 800,
+    maxPathLength: 1200,
+    maxSize: 5,
+    minSpeed: 300,
+    maxSpeed: 500,
+  })
   .start();
