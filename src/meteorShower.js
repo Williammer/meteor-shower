@@ -7,9 +7,6 @@ class Crood {
     this.x = x;
     this.y = y;
   }
-  copy() {
-    return new Crood(this.x, this.y);
-  }
 }
 
 class Meteor {
