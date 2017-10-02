@@ -152,12 +152,12 @@ const canvas = document.querySelector('canvas');
 const ctx2d = canvas.getContext('2d');
 
 new MeteorShower(canvas, ctx2d, {
-    meteorCount: 1,
-    maxPathHeight: 600,
-    minPathLength: 800,
-    maxPathLength: 1200,
-    maxSize: 5,
-    minSpeed: 300,
-    maxSpeed: 500,
-  })
+  meteorCount: 1,
+  maxPathHeight: 600,
+  minPathLength: 800,
+  maxPathLength: 1200,
+  maxSize: 5,
+  minSpeed: 300,
+  maxSpeed: 500,
+})
   .start();
