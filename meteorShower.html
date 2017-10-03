@@ -40,12 +40,27 @@
 
 <body>
   <div class="container">
+    <button id="toggleSound">Mute</button>
     <canvas id="meteorSky" width="2000" height="1400"></canvas>
-    <audio src="./media/a-song-for-love.mp3" autoplay loop>
+    <audio id="bgAudio" src="./media/a-song-for-love.mp3" autoplay loop>
       Your browser does not support the <code>audio</code> element.
     </audio>
   </div>
   <script src="dist/meteorShower.js"></script>
+  <script type="text/javascript">
+  var bgAudio = document.querySelector('#bgAudio');
+  var mute = document.querySelector('#toggleSound');
+  mute.onclick = function() {
+    var action = mute.innerHTML;
+    if (action === "Mute") {
+      bgAudio.muted = true;
+      mute.innerHTML = "Unmute";
+    } else {
+      bgAudio.muted = false;
+      mute.innerHTML = "Mute";
+    }
+  };
+  </script>
 </body>
 
 </html>
