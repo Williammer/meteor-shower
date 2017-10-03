@@ -35,12 +35,78 @@
   #meteorSky {
     width: 100%;
   }
+
+  .volume-normal,
+  .volume-mute {
+    width: 0;
+    height: 0;
+    border: 7px solid;
+    border-left: none;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    box-shadow: inset 4px 0;
+    display: inline-block;
+    position: absolute;
+    color: #FFF;
+    margin: 4px 16px 4px 5px;
+    padding: 6px 3px;
+    top: 10px;
+    right: 10px;
+  }
+
+  .volume-normal:before,
+  .volume-mute:before,
+  .volume-mute:after {
+    position: absolute;
+    content: '';
+  }
+
+  .volume-normal:before {
+    width: 15px;
+    height: 15px;
+    left: -2px;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    border-style: double;
+    border-width: 6px;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+
+  .volume-mute:before {
+    width: 14px;
+    height: 4px;
+    left: 15px;
+  }
+
+  .volume-mute:after {
+    height: 14px;
+    width: 4px;
+    left: 20px;
+  }
+
+  .volume-mute:after,
+  .volume-mute:before {
+    box-shadow: inset 0 0 0 32px;
+    -webkit-transform: translateY(-50%) rotate(45deg);
+    -ms-transform: translateY(-50%) rotate(45deg);
+    transform: translateY(-50%) rotate(45deg);
+  }
+
+  .volume-normal:hover,
+  .volume-mute:hover {
+    cursor: pointer;
+    color: #999;
+  }
   </style>
 </head>
 
 <body>
   <div class="container">
-    <button id="toggleSound">Mute</button>
+    <i id="toggleSound" class="volume-normal"></i>
     <canvas id="meteorSky" width="2000" height="1400"></canvas>
     <audio id="bgAudio" src="./media/a-song-for-love.mp3" autoplay loop>
       Your browser does not support the <code>audio</code> element.
@@ -49,15 +115,17 @@
   <script src="dist/meteorShower.js"></script>
   <script type="text/javascript">
   var bgAudio = document.querySelector('#bgAudio');
-  var mute = document.querySelector('#toggleSound');
-  mute.onclick = function() {
-    var action = mute.innerHTML;
-    if (action === "Mute") {
+  var toggleBtn = document.querySelector('#toggleSound');
+  bgAudio.volume = 0.77;
+
+  toggleBtn.onclick = function() {
+    var volume = toggleBtn.className;
+    if (volume === 'volume-normal') {
       bgAudio.muted = true;
-      mute.innerHTML = "Unmute";
+      toggleBtn.className = 'volume-mute';
     } else {
       bgAudio.muted = false;
-      mute.innerHTML = "Mute";
+      toggleBtn.className = 'volume-normal';
     }
   };
   </script>
