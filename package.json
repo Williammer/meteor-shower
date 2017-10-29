@@ -4,7 +4,8 @@
   "description": "All my love for YunZi",
   "main": "index.html",
   "scripts": {
-    "build": "babel src -d dist -s",
+    "build": "babel src -d dist",
+    "build:dev": "babel src -d dist -s",
     "build:watch": "babel src -w -d dist -s",
     "start": "open meteorShower.html",
     "lint": "eslint --fix src/meteorShower.js",
