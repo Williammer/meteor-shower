@@ -14,6 +14,8 @@ class Coordinate {
   }
 }
 
+
+
 class Meteor {
   constructor(init = new Coordinate(), final = new Coordinate(), size = 3, speed = 200, onDestroy = null) {
     this.init = init;
@@ -62,6 +64,7 @@ class Meteor {
     this.onDestroy && this.onDestroy(this);
   }
 }
+
 
 
 class MeteorShower {
@@ -147,6 +150,8 @@ class MeteorShower {
     this.stop = true;
   }
 }
+
+
 
 const canvas = document.querySelector('canvas');
 const ctx2d = canvas.getContext('2d');
