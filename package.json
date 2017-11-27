@@ -1,7 +1,7 @@
 {
-  "name": "all-for-yunzi",
+  "name": "meteor-shower",
   "version": "0.0.1",
-  "description": "All my love for YunZi",
+  "description": "meteor shower with Canvas",
   "main": "index.html",
   "scripts": {
     "build": "babel src -d dist",
@@ -13,18 +13,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Williammer/all-for-yunzi.git"
+    "url": "git+https://github.com/Williammer/meteor-shower.git"
   },
   "keywords": [
     "canvas",
-    "love"
+    "meteorShower"
   ],
   "author": "Williammer",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Williammer/all-for-yunzi/issues"
+    "url": "https://github.com/Williammer/meteor-shower/issues"
   },
-  "homepage": "https://github.com/Williammer/all-for-yunzi#readme",
+  "homepage": "https://github.com/Williammer/meteor-shower#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.0",
