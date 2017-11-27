@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/Williammer/all-for-yunzi.svg?branch=master)](https://travis-ci.org/Williammer/all-for-yunzi)
+[![Build Status](https://travis-ci.org/Williammer/meteor-shower.svg?branch=master)](https://travis-ci.org/Williammer/meteor-shower)
 
 
-## All my love for yun_zi
+## Meteor shower with Canvas
 
-- The [meteor shower](https://williammer.github.io/all-for-yunzi/meteorShower.html) that yun_zi love.
+- The [meteor shower](https://williammer.github.io/meteor-shower/meteorShower.html).
